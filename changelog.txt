@@ -1,0 +1,50 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.5.0
+Date: 31.10.2022
+  Features:
+    - Added compatibility option with Space Exploration. If SE is installed, then user can choose to add the pulverising recipes to the advanced assembling machine. By default, false.
+    - Added compatibility option with Space Exploration. If SE is installed, then user can choose to add the core fragment processing recipes to the advanced assembling machine. By default, false.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 12.01.2022
+  Features:
+    - Added settings options to allow user to choose between specific recipe blocks to add to advanced chemical plant, rather than homogenous block as before.
+    - Added compatibility option with Space Exploration. If SE is installed, then user can choose to add the washing recipes to the advanced chemical plant. By default, false.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 05.03.2021
+  Features:
+    - Added settings options to allow user to choose if recipes are added to advanced chemical plant.
+    - Added settings options to allow user to choose if crusher recipes are added to advanced assembler.
+  Other:
+    - Finally got a working changelog.
+---------------------------------------------------------------------------------------------------
+Version: 0.5.0
+Date: 05.03.2021
+  Features:
+    - Added crushing recipes to advanced assembling machine.
+---------------------------------------------------------------------------------------------------
+Version: 0.4.0
+Date: 05.03.2021
+  Features:
+    - Added filtration recipes to advanced chemical plant.
+---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 02.02.2021
+  Features:
+    - Added electrolysis recipes to advanced chemical plant.
+---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 26.01.2021
+  Other:
+    - Redid changelog to reflect recommended format.
+---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 26.01.2021
+  Features:
+    - Advanced chemical plants can now perform atmospheric condensation that was restricted to condensators in stock Krastorio 2.
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 26.01.2021
+  Features:
+    - Advanced chemical plants can now craft the various fuels restricted to fuel refineries in stock Krastorio 2.
