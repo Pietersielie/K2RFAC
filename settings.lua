@@ -46,16 +46,6 @@ data:extend({
 data:extend({
 	{
 		type = "bool-setting",
-		name = "K2RFAC-bool-add-SE-washing-recipes-to-chem-plant-setting",
-		setting_type = "startup",
-		default_value = false,
-		hidden = true
-	}
-})
-
-data:extend({
-	{
-		type = "bool-setting",
 		name = "K2RFAC-bool-add-SE-pulverising-recipes-to-assembler-setting",
 		setting_type = "startup",
 		default_value = false,
@@ -73,11 +63,9 @@ data:extend({
 	}
 })
 
-local s1 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-washing-recipes-to-chem-plant-setting"]
-local s2 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-pulverising-recipes-to-assembler-setting"]
-local s3 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-core-fragment-recipes-to-assembler-setting"]
+local s1 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-pulverising-recipes-to-assembler-setting"]
+local s2 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-core-fragment-recipes-to-assembler-setting"]
 if mods['space-exploration'] then
 	s1.hidden = false
 	s2.hidden = false
-	s3.hidden = false
 end

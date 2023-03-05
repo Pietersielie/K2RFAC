@@ -18,10 +18,9 @@ if (settings.startup["K2RFAC-bool-add-filtration-recipes-to-chem-plant-setting"]
 	table.insert(K2RFACList, "fluid-filtration")
 end
 
-if (mods['space-exploration']) and (settings.startup["K2RFAC-bool-add-SE-washing-recipes-to-chem-plant-setting"].value) then
-	table.insert(K2RFACList, "pressure-washing")
+if (mods['space-exploration']) then
+	table.insert(K2RFACList, "melting")
 end
-
 
 data:extend(
 {  
