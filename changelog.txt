@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.1
+Date: 11.03.2023
+  Bugfixes:
+    - Fixed compatibility issue with Space Exploration regarding holmium cable and solenoid recipes for advanced assembler.
+    - Fixed compatibility issue with Space Exploration changing some of the fuel recipes' categories (K2 calls it fuel-refinery, SE calls it fuel-refining).
+    - Known issue regarding higher tier thruster suits not available in advanced assembler, investigating.
+---------------------------------------------------------------------------------------------------
 Version: 3.0.0
 Date: 05.03.2023
   Bugfixes:

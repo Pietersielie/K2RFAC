@@ -20,6 +20,9 @@ end
 
 if (mods['space-exploration']) then
 	table.insert(K2RFACList, "melting")
+	if (settings.startup["K2RFAC-bool-add-fuel-recipes-to-chem-plant-setting"].value) then
+		table.insert(K2RFACList, "fuel-refining")
+	end
 end
 
 data:extend(

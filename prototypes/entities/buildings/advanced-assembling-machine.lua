@@ -80,6 +80,10 @@ if (settings.startup["K2RFAC-bool-use-added-crusher-recipes-setting"].value) the
 	table.insert(K2RFACList, "crushing")
 end
 
+if (mods['space-exploration']) then
+	table.insert(K2RFACList, "crafting-or-electromagnetics")
+end
+
 if (mods['space-exploration']) and (settings.startup["K2RFAC-bool-add-SE-pulverising-recipes-to-assembler-setting"].value) then
 	table.insert(K2RFACList, "pulverising")
 end
