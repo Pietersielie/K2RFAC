@@ -33,7 +33,7 @@ jobs:
                    "${{ github.workspace }}\LICENSE", "${{ github.workspace }}\README*",
                    "${{ github.workspace }}\changelog*", "${{ github.workspace }}\*.lua",
                    "${{ github.workspace }}\info.json", "${{ github.workspace }}\thumbnail.png"
-            DestinationPath = "${{ github.workspace }}\mod_${{ github.sha }}.zip"
+            DestinationPath = "${{ github.workspace }}\mod-${{ github.sha }}.zip"
           }
           Compress-Archive @compress
         shell: pwsh
@@ -43,6 +43,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: "K2RFAC_${{ github.ref_name }}_${{ github.workflow }}_${{ github.event_name }}"
-          path: "${{ github.workspace }}/mod.zip"
+          path: "${{ github.workspace }}/*.zip"
           if-no-files-found: error
           retention-days: 1
