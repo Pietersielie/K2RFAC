@@ -33,7 +33,7 @@ jobs:
                    "${{ github.workspace }}\LICENSE", "${{ github.workspace }}\README*",
                    "${{ github.workspace }}\changelog*", "${{ github.workspace }}\*.lua",
                    "${{ github.workspace }}\info.json", "${{ github.workspace }}\thumbnail.png"
-            DestinationPath = "${{ github.workspace }}\mod.zip"
+            DestinationPath = "${{ github.workspace }}\mod_${{ github.sha }}.zip"
           }
           Compress-Archive @compress
         shell: pwsh
