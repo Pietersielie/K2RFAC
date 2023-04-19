@@ -28,15 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Compress the mod to zip
         run: |
-          Get-ChildItem -Force
-          $compress = @{
-            Path = "${{ github.workspace }}\locale\", "${{ github.workspace }}\prototypes\",
-                   "${{ github.workspace }}\LICENSE", "${{ github.workspace }}\README*",
-                   "${{ github.workspace }}\changelog*", "${{ github.workspace }}\*.lua",
-                   "${{ github.workspace }}\info.json", "${{ github.workspace }}\thumbnail.png"
-            DestinationPath = "${{ github.workspace }}\K2RFAC-${{ github.sha }}_${{ github.event_name }}.zip"
-          }
-          Compress-Archive @compress
+          Get-ChildItem -Force -Exclude .git* | foreach {Compress-Archive -Path $_.FullName -Update -DestinationPath "${{ github.workspace }}\K2RFAC-${{ github.sha }}_${{ github.event_name }}.zip"}
           Get-ChildItem -Force
         shell: pwsh
 
