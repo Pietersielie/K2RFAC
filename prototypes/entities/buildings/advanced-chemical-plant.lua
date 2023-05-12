@@ -25,6 +25,8 @@ if (mods['space-exploration']) then
 	end
 end
 
+table.insert(K2RFACList, "oil-processing")
+
 data:extend(
 {  
 	{
