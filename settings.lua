@@ -37,6 +37,15 @@ data:extend({
 data:extend({
     {
         type = "bool-setting",
+        name = "K2RFAC-bool-add-oil-processing-recipes-to-chem-plant-setting",
+        setting_type = "startup",
+        default_value = true
+    }
+})
+
+data:extend({
+    {
+        type = "bool-setting",
         name = "K2RFAC-bool-use-added-crusher-recipes-setting",
         setting_type = "startup",
         default_value = true
