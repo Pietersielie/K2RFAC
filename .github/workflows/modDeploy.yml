@@ -29,24 +29,20 @@ jobs:
       - name: Get info from info.json
         id: extract_info
         run: |
-          echo "mod_name=`sed -e 's/^"//' -e 's/"$//' <<< $(jq '.name' ${{ github.workspace }}/info.json)`" >> $GITHUB_OUTPUT
-          echo "Mod name is `sed -e 's/^"//' -e 's/"$//' <<< $(jq '.name' ${{ github.workspace }}/info.json)`"
-          echo "mod_version=`sed -e 's/^"//' -e 's/"$//' <<< $(jq '.version' ${{ github.workspace }}/info.json)`" >> $GITHUB_OUTPUT
-          echo "Mod version is `sed -e 's/^"//' -e 's/"$//' <<< $(jq '.version' ${{ github.workspace }}/info.json)`"
+          echo "mod_name=$(jq -r '.name' ${{ github.workspace }}/info.json)" >> $GITHUB_OUTPUT
+          echo "Mod name is $(jq -r '.name' ${{ github.workspace }}/info.json)"
+          echo "mod_version=$(jq -r '.version' ${{ github.workspace }}/info.json)" >> $GITHUB_OUTPUT
+          echo "Mod version is $(jq -r '.version' ${{ github.workspace }}/info.json)"
 
       # Make destination directory
       - name: Make dest directory
-        run: mkdir ./${{steps.extract_info.outputs.mod_name}}
+        run: |
+          mkdir ./${{steps.extract_info.outputs.mod_name}}
+          mkdir ./${{steps.extract_info.outputs.mod_name}}/${{steps.extract_info.outputs.mod_name}}
       
       # Copy items into dest folder
       - name: Copy files
-        run: |
-          ls -al
-          rsync -av --progress . ./${{steps.extract_info.outputs.mod_name}} --exclude ${{steps.extract_info.outputs.mod_name}} --exclude .git --exclude .github
-          echo "Files in ./${{steps.extract_info.outputs.mod_name}}"
-          ls -al ./${{steps.extract_info.outputs.mod_name}}
-          echo "Files in ."
-          ls -al
+        run: rsync -av --progress . ./${{steps.extract_info.outputs.mod_name}}/${{steps.extract_info.outputs.mod_name}} --exclude ${{steps.extract_info.outputs.mod_name}} --exclude .git --exclude .github
 
       # Upload the dest folder
       - name: Upload the mod
