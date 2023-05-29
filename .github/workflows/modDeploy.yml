@@ -41,15 +41,15 @@ jobs:
       # Copy items into dest folder
       - name: Copy files
         run: |
-          ls -l
+          ls -al
           rsync -av --progress . ./${{steps.extract_info.outputs.mod_name}} --exclude ${{steps.extract_info.outputs.mod_name}} --exclude .git --exclude .github
-          ls -l ./${{steps.extract_info.outputs.mod_name}}
+          ls -al ./${{steps.extract_info.outputs.mod_name}}
 
       # Upload the dest folder
       - name: Upload the mod
         uses: actions/upload-artifact@v3
         with:
           name: "${{steps.extract_info.outputs.mod_name}}_${{steps.extract_info.outputs.mod_version}}"
-          path: ${{ github.workspace }}/${{steps.extract_info.outputs.mod_name}}
+          path: ${{ github.workspace }}/${{steps.extract_info.outputs.mod_name}}/
           if-no-files-found: error
           retention-days: 1
