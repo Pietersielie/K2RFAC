@@ -29,14 +29,14 @@ jobs:
       - name: Get info from info.json
         id: extract_info
         run: |
-          echo "mod_name=$(jq '.name' ${{ github.workspace }}/info.json)" >> $GITHUB_OUTPUT
-          echo "Mod name is $(jq '.name' ${{ github.workspace }}/info.json)"
-          echo "mod_version=$(jq '.version' ${{ github.workspace }}/info.json)" >> $GITHUB_OUTPUT
-          echo "Mod version is $(jq '.version' ${{ github.workspace }}/info.json)"
+          echo "mod_name=`sed -e 's/^"//' -e 's/"$//' <<< $(jq '.name' ${{ github.workspace }}/info.json)`" >> $GITHUB_OUTPUT
+          echo "Mod name is `sed -e 's/^"//' -e 's/"$//' <<< $(jq '.name' ${{ github.workspace }}/info.json)`"
+          echo "mod_version=`sed -e 's/^"//' -e 's/"$//' <<< $(jq '.version' ${{ github.workspace }}/info.json)`" >> $GITHUB_OUTPUT
+          echo "Mod version is `sed -e 's/^"//' -e 's/"$//' <<< $(jq '.version' ${{ github.workspace }}/info.json)`"
 
       # Make destination directory
       - name: Make dest directory
-        run: "mkdir ./${{steps.extract_info.outputs.mod_name}}"
+        run: mkdir ./${{steps.extract_info.outputs.mod_name}}
       
       # Copy items into dest folder
       - name: Copy files
@@ -53,6 +53,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{steps.extract_info.outputs.mod_name}}_${{steps.extract_info.outputs.mod_version}}
-          path: ${{steps.extract_info.outputs.mod_name}}/
+          path: ${{steps.extract_info.outputs.mod_name}}
           if-no-files-found: error
           retention-days: 1
