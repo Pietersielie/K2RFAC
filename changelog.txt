@@ -1,5 +1,12 @@
 ---------------------------------------------------------------------------------------------------
-Version: 3.0.1
+Version: 3.1.0
+Date: 11.03.2023
+  Features:
+    - Added option to add oil processing recipes to advanced chemical plant (both K2 and K2SE), thanks @klarkxy on Github.
+  Locale:
+    - Added Chinese translation, thanks @klarkxy on Github.
+---------------------------------------------------------------------------------------------------
+Version: 3.0.2
 Date: 11.03.2023
   Bugfixes:
     - Fixed issue #1 regarding higher tier thruster suits not available in advanced assembler, thanks @Sharp on SE discord.
