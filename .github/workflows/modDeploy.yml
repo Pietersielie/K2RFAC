@@ -41,7 +41,8 @@ jobs:
       # Copy items into dest folder
       - name: Copy files
         run: |
-          cp -r !(.git*|${{steps.extract_info.outputs.mod_name}}) ./${{steps.extract_info.outputs.mod_name}}/
+          ls -l
+          cp -r !(.git|.github|${{steps.extract_info.outputs.mod_name}}) ./${{steps.extract_info.outputs.mod_name}}/
           ls -l ./${{steps.extract_info.outputs.mod_name}}
 
       # Upload the dest folder
