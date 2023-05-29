@@ -43,13 +43,16 @@ jobs:
         run: |
           ls -al
           rsync -av --progress . ./${{steps.extract_info.outputs.mod_name}} --exclude ${{steps.extract_info.outputs.mod_name}} --exclude .git --exclude .github
+          echo "Files in ./${{steps.extract_info.outputs.mod_name}}"
           ls -al ./${{steps.extract_info.outputs.mod_name}}
+          echo "Files in ."
+          ls -al
 
       # Upload the dest folder
       - name: Upload the mod
         uses: actions/upload-artifact@v3
         with:
-          name: "${{steps.extract_info.outputs.mod_name}}_${{steps.extract_info.outputs.mod_version}}"
-          path: ${{ github.workspace }}/${{steps.extract_info.outputs.mod_name}}/
+          name: ${{steps.extract_info.outputs.mod_name}}_${{steps.extract_info.outputs.mod_version}}
+          path: ${{steps.extract_info.outputs.mod_name}}/
           if-no-files-found: error
           retention-days: 1
