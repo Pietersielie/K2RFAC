@@ -42,7 +42,7 @@ jobs:
       - name: Copy files
         run: |
           ls -l
-          cp -r !${{steps.extract_info.outputs.mod_name}} ./${{steps.extract_info.outputs.mod_name}}/
+          rsync -av --progress . ./${{steps.extract_info.outputs.mod_name}} --exclude ${{steps.extract_info.outputs.mod_name}}
           ls -l ./${{steps.extract_info.outputs.mod_name}}
 
       # Upload the dest folder
