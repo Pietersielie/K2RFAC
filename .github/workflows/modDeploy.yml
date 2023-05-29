@@ -18,25 +18,37 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Compress the mod to zip
+      
+      # Get mod name and version
+      - name: Get info from info.json
+        id: extract_info
         run: |
-          Get-ChildItem -Force -Exclude .git* | foreach {Compress-Archive -Path $_.FullName -Update -DestinationPath "${{ github.workspace }}\K2RFAC-${{ github.sha }}_${{ github.event_name }}.zip"}
-          Get-ChildItem -Force
-        shell: pwsh
+          echo "mod_name=$(jq '.name' ${{ github.workspace }}/info.json)\n" >> $GITHUB_OUTPUT
+          echo "Mod name is $(jq '.name' ${{ github.workspace }}/info.json)"
+          echo "mod_version=$(jq '.version' ${{ github.workspace }}/info.json)\n" >> $GITHUB_OUTPUT
+          echo "Mod version is $(jq '.version' ${{ github.workspace }}/info.json)"
 
-      # Runs a set of commands using the runners shell
-      - name: Upload the zipped mod
+      # Make destination directory
+      - name: Make dest directory
+        run: "mkdir ./${{steps.extract_info.outputs.mod_name}}"
+      
+      # Copy items into dest folder
+      - name: Copy files
+        run: |
+          cp -r !(.git*|${{steps.extract_info.outputs.mod_name}}) ./${{steps.extract_info.outputs.mod_name}}/
+          ls -l ./${{steps.extract_info.outputs.mod_name}}
+
+      # Upload the dest folder
+      - name: Upload the mod
         uses: actions/upload-artifact@v3
         with:
-          name: "K2RFAC_${{ github.ref_name }}_${{ github.workflow }}_${{ github.event_name }}"
-          path: "${{ github.workspace }}/*.zip"
+          name: "${{steps.extract_info.outputs.mod_name}}_${{steps.extract_info.outputs.mod_version}}"
+          path: "${{ github.workspace }}/${{steps.extract_info.outputs.mod_name}}"
           if-no-files-found: error
           retention-days: 1
