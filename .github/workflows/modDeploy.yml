@@ -29,9 +29,9 @@ jobs:
       - name: Get info from info.json
         id: extract_info
         run: |
-          echo "mod_name=$(jq '.name' ${{ github.workspace }}/info.json)\n" >> $GITHUB_OUTPUT
+          echo "mod_name=$(jq '.name' ${{ github.workspace }}/info.json)" >> $GITHUB_OUTPUT
           echo "Mod name is $(jq '.name' ${{ github.workspace }}/info.json)"
-          echo "mod_version=$(jq '.version' ${{ github.workspace }}/info.json)\n" >> $GITHUB_OUTPUT
+          echo "mod_version=$(jq '.version' ${{ github.workspace }}/info.json)" >> $GITHUB_OUTPUT
           echo "Mod version is $(jq '.version' ${{ github.workspace }}/info.json)"
 
       # Make destination directory
@@ -42,7 +42,7 @@ jobs:
       - name: Copy files
         run: |
           ls -l
-          cp -r !(.git|.github|${{steps.extract_info.outputs.mod_name}}) ./${{steps.extract_info.outputs.mod_name}}/
+          cp -r !${{steps.extract_info.outputs.mod_name}} ./${{steps.extract_info.outputs.mod_name}}/
           ls -l ./${{steps.extract_info.outputs.mod_name}}
 
       # Upload the dest folder
