@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.2.0
+Date: 21.08.2023
+  Changes:
+    - Moved the K2RFAC changes to data-updates section (instead of data-final-fixes).
+  Bugfixes:
+    - Fixed issue with Bottleneck Lite not applying to the machines changed by K2RFAC.
+---------------------------------------------------------------------------------------------------
 Version: 3.1.2
 Date: 30.05.2023
   Locale:
