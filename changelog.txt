@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.3.0
+Date: 27.08.2023
+  Changes:
+    - Modifies the original prototypes of the machines instead of redefining them, thanks to Ataraxia-Mechanica on Github.
+  Bugfixes:
+    - Fixed incompatibility with BZ mods, thanks to Ataraxia-Mechanica on Github.
+---------------------------------------------------------------------------------------------------
 Version: 3.2.0
 Date: 21.08.2023
   Changes:
