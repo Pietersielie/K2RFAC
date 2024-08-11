@@ -72,9 +72,21 @@ data:extend({
 	}
 })
 
+data:extend({
+	{
+		type = "bool-setting",
+		name = "K2RFAC-bool-add-SE-casting-recipes-to-furnace-setting",
+		setting_type = "startup",
+		default_value = false,
+		hidden = true
+	}
+})
+
 local s1 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-pulverising-recipes-to-assembler-setting"]
 local s2 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-core-fragment-recipes-to-assembler-setting"]
+local s3 = data.raw["bool-setting"]["K2RFAC-bool-add-SE-casting-recipes-to-furnace-setting"]
 if mods['space-exploration'] then
 	s1.hidden = false
 	s2.hidden = false
+	s3.hidden = false
 end
