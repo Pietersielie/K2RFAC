@@ -2,7 +2,7 @@
 local K2RFACList = data.raw["assembling-machine"]["kr-advanced-assembling-machine"].crafting_categories
 
 if (settings.startup["K2RFAC-bool-use-added-crusher-recipes-setting"].value) then
-	table.insert(K2RFACList, "crushing")
+	table.insert(K2RFACList, "kr-crushing")
 end
 
 if (mods['space-exploration']) then
