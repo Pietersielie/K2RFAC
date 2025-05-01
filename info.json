@@ -1,6 +1,6 @@
 {
 	"name": "Krastorio2RFAC",
-	"version": "3.4.5",
+	"version": "3.4.2",
 	"title": "Krastorio 2 Rocket Fuel in Advanced Chemical Plant",
 	"description": "Minor modification to allow advanced chemical plants to perform fuel refinement, atmospheric condensation, electrolysis, and filtration. Also added crushing recipes (sand and imersite powder) to advanced assembling machines. Requires Krastorio 2. Compatible with Space Exploration.",
 	"author": "PietersieliePC",
@@ -8,7 +8,6 @@
 	"dependencies":
 	[
 		"base >= 2.0.0",		
-		"Krastorio2 >= 2.0.0",
-		"? space-exploration >= 0.5"
+		"Krastorio2 >= 2.0.0"
 	]
 }

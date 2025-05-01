@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.5.0
+Date: 01.05.2025
+  Changes:
+    - Minor update for compatibility with Krastorio 2.0, thanks to @eugenikus8 on GitHub.
+  Locale:
+    - Add Russian translation, thanks to @eugenikus8 on GitHub.
+---------------------------------------------------------------------------------------------------
 Version: 3.4.1
 Date: 27.08.2024
   Bugfixes:

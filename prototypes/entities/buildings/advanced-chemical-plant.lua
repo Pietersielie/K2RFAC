@@ -17,7 +17,7 @@ if (settings.startup["K2RFAC-bool-add-filtration-recipes-to-chem-plant-setting"]
 end
 
 if (settings.startup["K2RFAC-bool-add-oil-processing-recipes-to-chem-plant-setting"].value) then
-   table.insert(K2RFACList, "oil-processing")
+	table.insert(K2RFACList, "oil-processing")
 end
 
 if (mods['space-exploration']) then
